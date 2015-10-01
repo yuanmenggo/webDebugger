@@ -1,0 +1,530 @@
+@charset "utf-8";
+/* CSS Document */
+
+#source_tree
+{
+	background:#F9F9F9;
+}
+
+.debugger_item
+{
+	background:#D8D8D8;
+	padding:5px;
+	font-weight:bold;
+	color:#4D5253;
+	font-family:"微软雅黑";
+	font-size:16px;
+	cursor:pointer;	
+}
+
+.selected_debugger_item
+{
+	background:#9CA9AF;
+	color:#FFF;
+}
+
+#debugger
+{
+	height:100%;
+	background:#F6F6F6;
+	font-family:Tahoma, Geneva, sans-serif;
+	position:relative;
+	top:0;
+	left:0;
+	
+}
+#source_tree
+{
+	font-size:12px;
+	height:54%;
+	overflow:auto;
+}
+
+.syntaxhighlighter
+{
+	height:100%;
+	overflow:auto;
+}
+
+#debugger_interpret
+{
+	width:50%;
+	margin:0;
+	background:#FFF;
+	padding:0;
+	position:relative;
+	top:0;
+	left:0;
+	border:1px dashed #CCC;
+	height:300px;
+}
+
+#debugger_interpret_div
+{
+	overflow:auto;
+	/*position:absolute;
+	top:0;
+	left:0;*/
+	width:100%;
+	height:100%;
+}
+
+#debugger_interpret table
+{
+	font-size:12px;
+	width:100%;
+	margin:0;
+	padding:0;
+	border-spacing:0;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+
+#debugger_interpret table th
+{
+	background:#CCC;
+	border-bottom:1px solid #666;
+	padding:5px;
+	color:#333;
+}
+
+#debugger_interpret table td
+{
+	padding:5px;
+	color:#333;
+	height:30px;
+	border-bottom:1px dashed #CCC;
+	border-left:1px dashed #CCC;
+}
+
+#debugger_interpret .tab_body{
+	height:40%;
+	width:100%;
+	overflow:auto;
+	text-align:center;
+}
+
+#debugger_interpret .tab_body td
+{
+	padding:2px;
+	text-align:center;
+}
+
+#debug_title
+{
+	background:#F6F6F6;
+	/*font-weight:bold;*/
+	padding:2px;
+	padding-left:10px;
+	color: #383A49;
+	width:100%;
+	position:relative;
+	top:0;
+	left:0;
+	font-size:16px;
+}
+
+#code_editor
+{
+	
+	font-size:14px;
+	background:#1B2426 !important;
+	line-height:130%;
+}
+
+#debugger_trace
+{
+	height:250px;
+	background:#FFF;
+	width:100%;
+	
+}
+
+.break_tab_head
+{
+	margin:0;
+	padding:0;
+}
+
+#binding_list
+{
+	width:40px;
+	height:100%;
+	border:1px dashed #999;
+}
+
+.file_selected
+{
+	background:#C3F;
+	color:#FFF;
+	padding:2px;
+}
+
+#source_tree li span
+{
+	cursor:pointer;
+}
+
+#debugger_files
+{
+	font-size:12px;
+	background:#F7F7F7;
+	height:43%;
+	overflow:auto;
+}
+
+#debugger_files li
+{
+	border-bottom:1px dashed #CCC;
+	padding:2px;
+	clear:both;
+}
+
+#debugger_files li a,#debugger_files li a:visited
+{
+	text-decoration:none;
+	color:#333;
+}
+
+#debugger_files li a:hover
+{
+	text-decoration:underline;
+	color: #060;
+}
+
+#debugger_files li span
+{
+	float:right;
+	cursor:pointer;
+}
+
+.debugger_file
+{
+	color:#F09;
+}
+
+.state_inter
+{
+	float:right;
+}
+
+#debugger_tishi
+{
+	position:absolute;
+	top:20%;
+	left:30%;
+	background:#999;
+	border:1px solid #666;
+	padding:7px;
+	width:450px;
+	height:200px;
+	font-size:12px;
+	display:none;
+}
+
+#debugger_funs .title,#debugger_tishi .title
+{
+	padding:4px;
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	border-bottom:1px dashed #666;
+	background:#22421C;
+}
+
+#debugger_funs #debugger_funs_list, #debugger_tishi #debugger_content
+{
+	padding:10px;
+	color:#3F4049;
+	background:#EAEBEE;
+	height:152px;
+	line-height:150%;
+	overflow:auto;
+}
+
+#debugger_funs
+{
+	top:50px;
+	background:#999;
+	border:1px solid #666;
+	padding:7px;
+	font-size:12px;
+	display:none;
+	position:absolute;
+	right:10px;
+	width:250px;
+}
+
+
+#debugger_funs ul li
+{
+	margin:0;
+	padding:0;
+}
+
+#debugger_funs a,#debugger_funs a:visited
+{
+	padding:0px;
+	text-decoration:none;
+	color:#333;
+	height:23px;
+	display:inline-block;
+	width:100%;
+}
+
+#debugger_funs a:hover
+{
+	color:#30F;
+	background:#C6E4C0;
+}
+
+.debug_line
+{
+	background:#CF0;
+	color:#F00;
+	font-weight:bold;
+	font-style:italic;
+}
+
+#code_editor .gutter .line
+{
+	cursor:pointer;
+}
+
+#binding_value
+{
+	font-size:12px;
+	background:#FFF;
+	color:#030;
+	height:300px;
+}
+
+
+#binding_ul_content
+{
+	width:100%;
+	height:95%;
+	overflow:auto;
+}
+#binding_ul
+{
+	list-style-type:none;
+}
+
+#binding_ul li
+{
+	padding:3px;
+	border-bottom:1px dashed #999;
+}
+
+.bind_key
+{
+	/*font-weight:bold;*/
+	color:#093;
+	width:140px;
+	padding-left: 10px;
+	vertical-align:middle;
+	display:inline-block;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+
+.bind_value
+{
+	display:inline-block;
+	padding:0 10px;
+	border-left:1px dashed #999;
+}
+
+#binding_ul_head 
+{
+	font-weight:bold;
+	color:#333;
+	padding:5px;
+	background:#CCC;
+	border-bottom:1px solid #666;
+}
+
+#binding_ul_head  span
+{
+	width:140px;
+	display:inline-block;
+}
+
+#current_source_mod
+{
+	display:inline-block;
+	color:#393;
+	padding-left:10px;
+	position:absolute;
+	top:3px;
+	left:10px;
+}
+
+#debug_control
+{
+	position:absolute;
+	top:8px;
+	right:60px;
+}
+
+#debug_control span.debug_btn
+{
+	display:inline-block;
+	
+}
+
+#debug_control span.debug_btn a,#debug_control span.debug_btn a:visited
+{
+	padding:1px 3px;
+	/*font-weight:bold;*/
+	text-decoration:none;
+	border:1px dashed #CCC;
+}
+
+#debug_control span.debug_btn a:hover
+{
+	background:#39C;
+	color:#FFF
+}
+
+.step_color
+{
+	color:#990;
+	background:#F2F2F4;
+}
+
+.next_color
+{
+	color:#C39;
+	background:#F2F2F4;
+}
+
+.finish_color
+{
+	color:#66F;
+	background:#F2F2F4;
+}
+
+.clear_color
+{
+	color:#390;
+	background:#F2F2F4;
+}
+
+.more_color
+{
+	color:#C66;
+	background:#F2F2F4;
+}
+
+.stop_color
+{
+	color:#C60;
+	background:#F2F2F4;
+}
+.attach_pid
+{
+	font-weight:bold;
+	background:#F9EEDF;
+}
+
+.attached_pid
+{
+	color:#C09;
+	background:#EDF9E3;
+	font-weight:bold;
+}
+
+.debugger_line
+{
+	background:#FCC;
+	color:#900;
+	font-weight:bold;
+}
+
+.debug_code_line 
+ {
+	background-color:#556743;
+	color:#0C6;
+	font-weight:bold;	 
+}
+
+.debug_order_line
+{
+	background:#498F4B;
+	color:#FFF;
+}
+
+#debug_info_p
+{
+	font-size:10px;
+	color:#990;
+	font-weight:normal;
+	text-align:left;
+	margin:0 10px;
+}
+
+.selected_btn
+{
+	background:#936;
+	color:#FFF;
+}
+
+#debugger_use
+{
+	padding:15px 20px;
+	margin:10px;
+	color:#546585;
+	font-size:12px;
+	line-height:150%;
+	font-family:"微软雅黑";
+}
+
+#debugger_use h1
+{
+	font-size:18px;
+	margin:10px;
+	padding:10px;
+	text-align:right;
+	font-weight:normal;
+	color:#677C9E;
+	border-bottom:1px solid #354053;
+}
+
+#debugger_use h2
+{
+	font-size:16px;
+	margin:10px;
+	text-align:left;
+	font-weight:normal;
+	color:#677C9E;
+	border-top:1px dashed #252832;
+}
+
+#debugger_use p>span
+{
+	color:#677BA0;
+}
+
+#debugger_use .my_notice
+{
+	margin-left:0px;
+}
+#debugger_use .my_notice span
+{
+	color:#677BA0;
+	font-size:10px;
+	display:inline-block;
+	margin:5px 10px;
+}
+
+#debugger_use p
+{
+	margin:5px;
+}
+
+#snapshot_tab .current_select
+{
+	color:#FFF;
+	background:#060;
+}

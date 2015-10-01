@@ -1,0 +1,17 @@
+{application, protobuffs,
+[
+    {description, "protobuffs toolkit"},
+    {vsn, "0.9.0"},
+    {modules, [
+        pokemon_pb,
+        protobuffs,
+        protobuffs_compile,
+        protobuffs_parser
+    ]},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env, []}
+]}.

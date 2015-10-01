@@ -1,0 +1,101 @@
+#!/bin/sh
+cd `dirname $0`
+
+mkdir -p log/sasl
+
+here=`which "$0" 2>/dev/null || echo .`
+base="`dirname $here`"
+WHERE_ERL_CALL=`whereis erl_call`
+SHELL_DIR=`(cd "$base"; echo $PWD)`
+if [ "$WHERE_ERL_CALL" = "erl_call:" ]
+then
+	ERL_CALL="/usr/local/Cellar/erlang/17.4/lib/erlang/lib/erl_interface-3.7.20/erl_call"
+ #   ERL_CALL="/usr/local/lib/erlang/lib/erlang/lib/erl_interface-3.7.8/bin/erl_call"
+else
+    ERL_CALL=`echo ${WHERE_ERL_CALL}| awk '{print $2}'`
+fi
+
+
+IP=$(/sbin/ifconfig eth0 |awk -F[\:" "] '/inet addr/{print $13}')
+## cookie
+ERLANG_COOKIE="erl_web_dbg!"
+#ERLANG_COOKIE="tsung"
+
+GAME_NODE_NAME="wedbg@${IP}"
+
+NODE_NAME="wedbg@${IP}"
+
+PARAM="-setcookie ${ERLANG_COOKIE} -name ${NODE_NAME} -we_root ${PWD} "
+
+help ()
+{
+    echo "使用说明"
+    echo "基本语法: ${0} 命令模块 [option]"
+    echo "命令模块："
+    echo "help                  	显示当前帮助内容"
+    echo "debug                 	debug相关操作"
+    echo "live                  	live相关操作"
+    echo "stop                  	stop相关操作"
+    echo "start                 	start相关操作"
+    echo "特殊使用 ./start-dev debug 2，用于防止debug节点重名"
+    exit 0
+}
+
+start_dbg()
+{
+	COMMAND="erl ${PARAM} -pa $PWD/ebin $PWD/deps/*/ebin -boot start_sasl -config sys.config -s we -detached -noinput"
+	echo "-------------------------===----------------------------------"
+	echo "${COMMAND}"
+	echo "-------------------------===----------------------------------"
+	bash -c "$COMMAND"
+}
+
+
+compile()
+{
+   make 
+}
+
+## live 方式启动游戏
+live_dbg()
+{
+	COMMAND="erl ${PARAM} -pa $PWD/ebin $PWD/deps/*/ebin -boot start_sasl -config sys.config -s we"
+	echo "-------------------------===----------------------------------"
+	echo "${COMMAND}"
+	echo "-------------------------===----------------------------------"
+	bash -c "$COMMAND"
+}
+
+## 停止
+stop_dbg()
+{
+	COMMAND="${ERL_CALL} -s -a 'erlang halt' -c ${ERLANG_COOKIE} -name ${NODE_NAME} "
+	echo "-------------------------===----------------------------------"
+	echo "${COMMAND}"
+	echo "-------------------------===----------------------------------"
+	
+	bash -c "$COMMAND"
+}
+
+## 进入debug节点
+debug_dbg()
+{
+	COMMAND="erl -name debug-${NODE_NAME} ${PARAMS} -hidden -remsh ${NODE_NAME} -setcookie ${ERLANG_COOKIE} "
+	echo "-------------------------===----------------------------------"
+	echo "${COMMAND}"
+	echo "-------------------------===----------------------------------"
+	bash -c "$COMMAND"
+}
+
+## 获取子shell命令
+TARGET=$1
+shift
+case $TARGET in
+	help) help ;;
+	compile) compile $*;;
+	start) start_dbg $*;;
+	live) live_dbg $*;;
+	stop) stop_dbg $*;;
+	debug) debug_dbg $*;;
+	*) help ;;
+esac

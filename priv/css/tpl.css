@@ -1,0 +1,142 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+}
+body
+{
+	overflow:hidden;
+}
+
+#header
+{
+	height:35px;
+	border-bottom:1px solid #CCC;
+	background:#000;
+}
+
+#header h1
+{
+	font-weight:bold;
+	color: #458F6A;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:22px;
+	font-style:italic;
+	padding:5px 10px 3px;
+	float:left;
+}
+
+
+#content
+{
+	width:100%;
+}
+
+#content #left_content
+{
+	width:220px;
+	background:#E8F3F4;
+	height:600px;
+	float:left;
+	overflow:hidden;
+}
+
+
+#content #right_content
+{
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-left:220px;
+}
+
+
+.loading
+{
+	font-size:12px;
+	text-align:center;
+	font-family:"微软雅黑";
+}
+
+.select
+{
+	width:120px;
+	padding-left:10px;
+}
+
+.btn
+{
+	width:60px;
+	padding:3px 4px;
+}
+.txt
+{
+	width:160px;
+	padding-left:10px;
+	height:25px;
+	border:1px solid #616130;
+}
+
+.textarea
+{
+	width:85%;
+	height:12%;
+	margin:5px 0;
+	border:1px solid #7B833D; 
+	float:left;
+}
+
+
+
+#client_check
+{
+	position:absolute;
+	top:30%;
+	left:10%;
+	width:80%;
+	height:100px;
+}
+.client_alert
+{
+	color:#F00;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;
+	margin:15px;
+}
+
+.client_title
+{
+	font-size:14px;
+	color:#06F;
+	text-align:center;
+}
+
+.client_title span
+{
+	color:#39F;
+	text-decoration:underline;
+}
+
+.down_chrome 
+{
+	text-align:center;
+	margin:10px;
+	font-family:"黑体";
+}
+
+.down_chrome  span a,.down_chrome  span a:visited
+{
+	display:inline-block;
+	color:#FFF;
+	background:#00F;
+	padding:5px 10px;
+	text-decoration:none;
+}
+
+.down_chrome  span a:hover
+{
+	background:#F0C;
+}
+
