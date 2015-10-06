@@ -1,4 +1,4 @@
-{application, we,
+{application, weDebugger,
  [
   {description, "web-based suite of tools for interrogating an erlang game system"},
   {vsn, "0.1"},
