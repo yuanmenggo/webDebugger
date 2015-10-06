@@ -1,24 +1,30 @@
 #WeDebugger-Web版Erlang代码断点调试工具
 
-**weDebugger**是关于Erlang代码断点调试的工具，使用时将该项目做为原项目依赖下载至deps目录中，然后在项目启动时调用we:start()以启动断点调试服务。
+**weDebugger**是关于Erlang代码断点调试的工具，使用时将该项目做为目标项目依赖下载至deps目录中，然后在项目启动时调用we:start()以启动断点调试服务。
 
 ####运行项目
 该项目使用rebar进行编译，具体运行方法如下：
 
-1. **配置**：rebar.config添加如下依赖项以获取该项目：
+1. **配置**：在目标项目rebar.config中添加如下依赖项以获取weDebugger：
 
 ``` erlang
 	{weDebugger, ".*", {git, "https://git.coding.net/yuanmenggo/WeDebugger.git", "master"}}
 ```
-2. **启动**：在项目启动入口添加如下调用用以启动webDebugger断点调试服务
+             调试项目时，需要添加debug_info信息，rebar.config需要添加如下配置：
+
+``` erlang
+        {erl_opts, [debug_info]}.
+```
+
+2. **启动**：在目标项目启动入口添加如下调用以启动webDebugger调试服务：
 
 ``` erlang
 	we:start().
 ```
 
-3. **依赖**：./rebar get-deps
-4. **编译**：./rebar compile
-5. **运行**：运行项目，会在控制台打印如下提示，为启动服务成功，然后可在浏览器中访问该地址即可
+3. **依赖**：目标项目运行./rebar get-deps下载依赖
+4. **编译**：目标项目运行./rebar compile编译依赖
+5. **运行**：运行目标项目，会在控制台打印如下提示，为启动服务成功，然后可在浏览器中访问该地址即可
 
 ```erlang
 	weDebugger listening on http://127.0.0.1:20130/
