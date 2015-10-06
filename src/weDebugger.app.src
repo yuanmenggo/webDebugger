@@ -1,6 +1,6 @@
 {application, weDebugger,
  [
-  {description, "web-based suite of tools for interrogating an erlang game system"},
+  {description, "web-based suite of tools for interrogating an erlang debugger"},
   {vsn, "0.1"},
   {registered, []},
   {applications, [
