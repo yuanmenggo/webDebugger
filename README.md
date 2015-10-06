@@ -5,7 +5,7 @@
 ####运行项目
 该项目使用rebar进行编译，具体运行方法如下：
 
-1. **下载依赖配置**：在目标项目rebar.config中添加如下依赖项以获取weDebugger
+1. **项目依赖配置**：在目标项目rebar.config中添加如下依赖项以获取weDebugger
 
 ``` erlang
 	{weDebugger, ".*", {git, "https://git.coding.net/yuanmenggo/WeDebugger.git", "master"}}
@@ -14,7 +14,7 @@
 2. **添加调试配置**：调试项目时，需要添加debug_info信息，rebar.config需要添加如下配置
 
 ``` erlang
-        {erl_opts, [debug_info]}.
+     {erl_opts, [debug_info]}.
 ```
 
 3. **启动**：在目标项目启动入口添加如下调用以启动webDebugger调试服务：
