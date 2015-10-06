@@ -11,12 +11,15 @@
 	{weDebugger, ".*", {git, "https://git.coding.net/yuanmenggo/WeDebugger.git", "master"}}
 ```
 2. **启动**：在项目启动入口添加如下调用用以启动webDebugger断点调试服务
+
 ``` erlang
 	we:start().
 ```
+
 3. **依赖**：./rebar get-deps
 4. **编译**：./rebar compile
 5. **运行**：运行项目，会在控制台打印如下提示，为启动服务成功，然后可在浏览器中访问该地址即可
+
 ```erlang
 	weDebugger listening on http://127.0.0.1:20130/
 ```
