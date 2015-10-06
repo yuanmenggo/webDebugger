@@ -48,7 +48,7 @@ file(Path) ->
   file:read_file(filename:join(Priv, Path)).
 
 priv() ->
-  case code:priv_dir(weSupervisor) of
+  case code:priv_dir(weDebugger) of
     {error,_} -> "priv";
     Priv -> Priv
   end.
