@@ -11,8 +11,8 @@ handle(Req0, State) ->
     {Method, Req1} = cowboy_http_req:method(Req),
     handle_path(Method, Path, Req1, State).
 handle_path('GET', [<<"debugger">>,<<"tree">>], Req, State) ->
-    AppDir = we_common:get_root_dir(),
-    Parent = AppDir++"/src",
+    Parent = we_common:get_root_dir(),
+    % Parent = AppDir++"/src",
     {Data, _} = cowboy_http_req:raw_qs(Req),
     [<<"root">>, Value]= binary:split(Data, <<"=">>),
     Path = case Value of
@@ -61,8 +61,11 @@ handle_path('GET', [<<"debugger">>,<<"chunks">>,FullPath], Req, State) ->
     FullPath2 = binary:replace(FullPath,<<"__">>,<<"/">>,[global]),
     FullPath3 = binary_to_list(FullPath2),
     FullPath4 = "/"++FullPath3++".erl" ,
-    ModName = we_common:list_to_atom(lists:last(string:tokens(FullPath3,"/"))),   
-    Info = we_debugger:request_debugger_data({chunks_file, FullPath4, ModName}),
+    ModName = lists:last(string:tokens(FullPath3,"/")),
+    SrcModule = list_to_binary("src/"++ModName),
+    % ModName = we_common:list_to_atom(Module),  
+    ParentDir = "/"++binary_to_list(binary:replace(FullPath2,[SrcModule],<<"">>)), 
+    Info = we_debugger:request_debugger_data({chunks_file, ParentDir, FullPath4, ModName}),
     json_response(Info, Req, State);
 handle_path('GET',[<<"debugger">>,<<"del">>,<<"interprered">>, Mod], Req, State) ->
     Mod2 = we_common:list_to_atom(binary_to_list(Mod)),

@@ -104,10 +104,11 @@ do_handle_call({debugger_file, ModName}, State) ->
     FunString = "os:cmd(\"./cl  "++ ModName ++ "\").",
     DirList = common_process:eval(FunString, []),
     {DirList, State};
-do_handle_call({chunks_file, FullPath, ModName}, State) ->
-    AppPath = we_common:get_root_dir(),
-    {ok, Bin, _F} = erl_prim_loader:get_file(filename:absname(AppPath++"/ebin/"++atom_to_list(ModName)++".beam")),
-    Result = int:i({ModName,FullPath,AppPath++"/ebin/"++ atom_to_list(ModName)++".beam", Bin}),
+do_handle_call({chunks_file, ParentDir, FullPath, ModName}, State) ->
+    % AppPath = we_common:get_root_dir(),
+    EbinPath = ParentDir++"ebin/"++ ModName ++".beam",
+    {ok, Bin, _F} = erl_prim_loader:get_file(EbinPath),
+    Result = int:i({we_common:list_to_atom(ModName),FullPath,EbinPath, Bin}),
     {Result, State};
     % FunString = "{ok,[[AppPath]]} = init:get_argument(we_root),
     %              {ok, Bin, _F} = erl_prim_loader:get_file(filename:absname(AppPath++\"/ebin/\"++atom_to_list(ModName)++\".beam\")),
@@ -148,8 +149,8 @@ do_handle_call({pid_info, Pid}, State) ->
     end;                                             
 do_handle_call({mod_path, ModName}, State) ->
     % Parent = ?SOURCE_ROOT,
-    AppPath = we_common:get_root_dir(),
-    Parent = AppPath ++ "/src",
+    Parent = we_common:get_root_dir(),
+    % Parent = AppPath ++ "/src",
     FullPath = case catch find_file(ModName, Parent) of
                     {ok, MyPath} ->
                         MyPath;
