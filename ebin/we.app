@@ -1,5 +1,5 @@
 {application,we,
-             [{description,"web-based suite of tools for interrogating an erlang debugger tools"},
+              [{"description","web-based suite of tools for interrogating an erlang debugger tools"},
               {vsn,"0.1"},
               {registered,[]},
               {applications,[kernel,stdlib,cowboy,jsx]},
