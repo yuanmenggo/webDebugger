@@ -1,3 +1,6 @@
+%%%-------------------------------------------------------------------
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
+%%%-------------------------------------------------------------------
 -module(we_stream_web).
 -behaviour(cowboy_http_handler).
 -behaviour(cowboy_http_websocket_handler).

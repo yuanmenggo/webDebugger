@@ -1,10 +1,5 @@
 %%%-------------------------------------------------------------------
-%%% @author bisonwu <guoyuanhua@mingchao.com>
-%%% @copyright (C) 2010, mingchao.com
-%%% @doc
-%%%     for process
-%%% @end
-%%% Created : 2010-10-25
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
 %%%-------------------------------------------------------------------
 -module(common_process).
 

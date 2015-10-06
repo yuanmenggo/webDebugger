@@ -1,10 +1,5 @@
 %%%-------------------------------------------------------------------
-%%% @author Guoyuanhua <>
-%%% @copyright (C) 2013, Guoyuanhua
-%%% @doc
-%%%
-%%% @end
-%%% Created :  9 Feb 2013 by Guoyuanhua <>
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
 %%%-------------------------------------------------------------------
 -module(we_server_pub).
 

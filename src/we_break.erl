@@ -1,5 +1,5 @@
 %%%-------------------------------------------------------------------
-%%% Created :  2 Feb 2013 by Guoyuanhua <>
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
 %%%-------------------------------------------------------------------
 -module(we_break).
 -compile(export_all).

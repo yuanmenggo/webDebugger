@@ -1,3 +1,6 @@
+%%%-------------------------------------------------------------------
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
+%%%-------------------------------------------------------------------
 -module(we_http_debugger).
 -behaviour(cowboy_http_handler).
 -include("common.hrl").

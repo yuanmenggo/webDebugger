@@ -1,3 +1,6 @@
+%%%-------------------------------------------------------------------
+%%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
+%%%-------------------------------------------------------------------
 -module(we_http_catchall).
 -behaviour(cowboy_http_handler).
 -export([init/3, handle/2, terminate/2]).
