@@ -1,5 +1,36 @@
-#WeDebugger 
-项目：Erlang代码断点调试工具web版
-依赖：./rebar get-deps
-编译：./rebar compile
-启动：./web start
+#WeDebugger-Web版Erlang代码断点调试工具
+
+**weDebugger**是关于Erlang代码断点调试的工具，使用时将该项目做为原项目依赖下载至deps目录中，然后在项目启动时调用we:start()以启动断点调试服务。
+
+####运行项目
+该项目使用rebar进行编译，具体运行方法如下：
+1、**rebar.config**添加如下依赖项以获取该项目：
+
+``` erlang
+	{weDebugger, ".*", {git, "https://git.coding.net/yuanmenggo/WeDebugger.git", "master"}}
+```
+2、**启动webDebugger**：在项目启动入口添加如下调用用以启动webDebugger断点调试服务
+``` erlang
+	we:start().
+```
+3、**依赖**：./rebar get-deps
+4、**编译**：./rebar compile
+5、**运行**：运行项目，会在控制台打印如下提示，为启动服务成功，然后可在浏览器中访问该地址即可
+```erlang
+	weDebugger listening on http://127.0.0.1:20130/
+```
+
+####操作指南
+打开浏览器后，访问地址： http://127.0.0.1:20130/， 按如下操作：
+1. 在左侧栏**【文件列表】**中选择需要断点调试的文件，并双击，即可将文件加入左下方**【调试文件】**列表中；
+2. 点击已加入**【调试文件】**列表中**【文件名超链接】**，启动文件；
+3. 调试文件加载完成后，点击**【打开】**链接，即可在右边代码区域高亮显示文件内容；
+4. 在代码区域**【行号栏】**上单击，即可给该模块加断点，再次点击该行号，取消该处断点；
+5. **【进程列表】**中显示所有进程当前状态，点击**【链接】**选择需调试的进程开始连接；
+6. 当已链接进程状态变为break时，点击进程**【信息栏超链接】**，打开调试模块文件，通过**【Step】**、**【Next】**、**【Finish】**进行断点调试。
+
+####说明
+为了更好的操作体验，现只开放对**chrome**浏览器的支持，请使用chrome来访问
+
+#### 反馈与建议
+- 邮箱：<shoumuyushan@gmail.com>,<debuggerbaby@gmail.com>,<649373694@qq.com>,<812445367@qq.com>
