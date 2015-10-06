@@ -1,2 +1,0 @@
--define(SOURCE_ROOT, "/src").
--define(ONLINE_INTERVAL, 1000).

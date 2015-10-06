@@ -4,7 +4,6 @@
 -module(we_debugger).
 -compile(export_all).
 -behaviour(gen_server).
--include("common.hrl").
 %% API
 -export([start_link/0]).
 
@@ -105,17 +104,10 @@ do_handle_call({debugger_file, ModName}, State) ->
     DirList = common_process:eval(FunString, []),
     {DirList, State};
 do_handle_call({chunks_file, ParentDir, FullPath, ModName}, State) ->
-    % AppPath = we_common:get_root_dir(),
     EbinPath = ParentDir++"ebin/"++ ModName ++".beam",
     {ok, Bin, _F} = erl_prim_loader:get_file(EbinPath),
     Result = int:i({we_common:list_to_atom(ModName),FullPath,EbinPath, Bin}),
     {Result, State};
-    % FunString = "{ok,[[AppPath]]} = init:get_argument(we_root),
-    %              {ok, Bin, _F} = erl_prim_loader:get_file(filename:absname(AppPath++\"/ebin/\"++atom_to_list(ModName)++\".beam\")),
-    %              int:i({ModName,FullPath,AppPath++\"/ebin/\"++ atom_to_list(ModName)++\".beam\", Bin}).",
-    % Binding =  [{'FullPath',FullPath}, {'ModName',ModName}],
-    % Result = common_process:eval(FunString, Binding),
-    % {Result, State};
 do_handle_call({read_file, FullPath}, State) ->
     Result = case file:read_file(FullPath) of
                 {ok, FileContent} ->
@@ -148,9 +140,7 @@ do_handle_call({pid_info, Pid}, State) ->
             ignore
     end;                                             
 do_handle_call({mod_path, ModName}, State) ->
-    % Parent = ?SOURCE_ROOT,
     Parent = we_common:get_root_dir(),
-    % Parent = AppPath ++ "/src",
     FullPath = case catch find_file(ModName, Parent) of
                     {ok, MyPath} ->
                         MyPath;
