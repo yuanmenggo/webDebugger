@@ -1,2 +1,2 @@
--define(SOURCE_ROOT, "/Users/guoyuanhua/Documents/data/share/weDebugger/src").
+-define(SOURCE_ROOT, "/src").
 -define(ONLINE_INTERVAL, 1000).

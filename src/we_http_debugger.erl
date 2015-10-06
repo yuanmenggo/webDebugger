@@ -11,7 +11,8 @@ handle(Req0, State) ->
     {Method, Req1} = cowboy_http_req:method(Req),
     handle_path(Method, Path, Req1, State).
 handle_path('GET', [<<"debugger">>,<<"tree">>], Req, State) ->
-    Parent = ?SOURCE_ROOT,
+    AppDir = web_common:get_root_dir(),
+    Parent = AppDir++"/src",
     {Data, _} = cowboy_http_req:raw_qs(Req),
     [<<"root">>, Value]= binary:split(Data, <<"=">>),
     Path = case Value of

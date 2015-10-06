@@ -1,6 +1,10 @@
 -module(we_common).
 -compile(export_all).
 
+get_root_dir()->
+  {ok, Root} =  file:get_cwd(),
+  Root.
+
 tuple_to_record(Fields, Tuple) when is_tuple(Tuple)->
 	tuple_to_record(Fields, [Tuple], []);
 tuple_to_record(Fields ,TupleList) ->
