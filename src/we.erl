@@ -15,7 +15,7 @@ start() ->
     ensure_started(cowboy),
   %%  ensure_started(ranch),
     ensure_started(jsx),
-    application:start(we).
+    application:start(weDebugger).
 
 stop() ->
-    application:stop(we).
+    application:stop(weDebugger).
