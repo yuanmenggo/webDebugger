@@ -3,7 +3,7 @@
 %%%-------------------------------------------------------------------
 -module(we_http_debugger).
 -behaviour(cowboy_http_handler).
--export([init/3, handle/2, terminate/2]).
+-export([init/3, handle/2, terminate/2, terminate/3]).
 
 init({tcp, http}, Req, _Opts) ->
     {ok, Req, undefined_state}.
@@ -122,7 +122,8 @@ not_found(Req, State) ->
 terminate(_Req, _State) ->
     ok.
 
-
+terminate(_Reason, _Req, _State) ->
+    ok.
 
 
 
