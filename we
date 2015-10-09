@@ -16,7 +16,7 @@ else
 fi
 
 
-IP=$(/sbin/ifconfig eth0 |awk -F[\:" "] '/inet addr/{print $13}')
+IP=127.0.0.1  ## $(/sbin/ifconfig eth0 |awk -F[\:" "] '/inet addr/{print $13}')
 ## cookie
 ERLANG_COOKIE="erl_web_dbg!"
 #ERLANG_COOKIE="tsung"

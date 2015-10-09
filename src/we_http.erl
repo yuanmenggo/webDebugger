@@ -77,7 +77,9 @@ init([]) ->
                           cowboy_tcp_transport, [{port, Port}],
                           cowboy_http_protocol, [{dispatch, dispatch_rules()}]
                          ),
-
+    % {ok, _} = cowboy:start_http(http, NumAcceptors, [{port, Port}], [
+    %          {env, [{dispatch, dispatch_rules()}]}
+    %         ]),
     {ok, #state{}}.
 
 %%--------------------------------------------------------------------
