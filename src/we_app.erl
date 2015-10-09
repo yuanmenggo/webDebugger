@@ -2,7 +2,6 @@
 %%% Created :  2 Feb 2013 by yuanmenggo,shoumuyushan
 %%%-------------------------------------------------------------------
 -module(we_app).
--include("common.hrl").
 -behaviour(application).
 
 %% Application callbacks

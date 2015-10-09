@@ -3,7 +3,6 @@
 %%%-------------------------------------------------------------------
 -module(we_http_debugger).
 -behaviour(cowboy_http_handler).
--include("common.hrl").
 -export([init/3, handle/2, terminate/2]).
 
 init({tcp, http}, Req, _Opts) ->
